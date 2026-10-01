@@ -1,0 +1,7 @@
+﻿selected_experiment: E01
+experiment_name: assignment2-orchestrated
+registered_model_name: assignment2-credit-risk
+quality_gates:
+  min_roc_auc: 0.70
+  min_pr_auc: 0.45
+  max_fairness_gap: 0.10

@@ -1,0 +1,27 @@
+﻿FROM apache/airflow:2.10.5-python3.11
+
+USER root
+
+RUN python -m venv /opt/ml-venv \
+    && mkdir -p /opt/project /opt/runtime \
+    && chown -R airflow:root /opt/ml-venv /opt/project /opt/runtime
+
+COPY --chown=airflow:root requirements.txt requirements-assignment2.txt /opt/project/
+
+USER airflow
+
+RUN PIP_USER=false /opt/ml-venv/bin/python -m pip install \
+    --no-cache-dir -r /opt/project/requirements-assignment2.txt
+
+COPY --chown=airflow:root pipeline/ /opt/project/pipeline/
+COPY --chown=airflow:root scripts/ /opt/project/scripts/
+COPY --chown=airflow:root config/ /opt/project/config/
+COPY --chown=airflow:root dags/ /opt/project/dags/
+COPY --chown=airflow:root data/credit_default.csv /opt/project/data/credit_default.csv
+
+ENV PROJECT_ROOT=/opt/project \
+    ML_PYTHON=/opt/ml-venv/bin/python \
+    PIPELINE_RUNTIME_DIR=/opt/runtime \
+    PYTHONPATH=/opt/project
+
+WORKDIR /opt/project

@@ -1,0 +1,46 @@
+﻿name: ddm501-assignment2-orchestration
+
+services:
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    image: ddm501-assignment2-airflow:2.10.5
+    command: standalone
+    ports:
+      - "127.0.0.1:18080:8080"
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+      AIRFLOW__CORE__DAGS_FOLDER: /opt/project/dags
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "false"
+      GIT_COMMIT: ${ASSIGNMENT2_GIT_COMMIT:-unknown}
+    volumes:
+      - airflow_state:/opt/airflow
+      - pipeline_runtime:/opt/runtime
+    restart: unless-stopped
+
+  mlflow:
+    image: ddm501-assignment2-airflow:2.10.5
+    entrypoint: ["/opt/ml-venv/bin/mlflow"]
+    command:
+      - ui
+      - --backend-store-uri
+      - sqlite:////opt/runtime/mlflow.db
+      - --host
+      - 0.0.0.0
+      - --port
+      - "5000"
+    ports:
+      - "127.0.0.1:5001:5000"
+    volumes:
+      - pipeline_runtime:/opt/runtime
+    depends_on:
+      - airflow
+    restart: unless-stopped
+
+volumes:
+  airflow_state:
+  pipeline_runtime:
