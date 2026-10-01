@@ -26,3 +26,6 @@ htmlcov/
 mlflow.db
 mlflow.db-*
 mlruns/
+
+# Local orchestration runtime; submission evidence lives in docs/evidence.
+artifacts/orchestration/
