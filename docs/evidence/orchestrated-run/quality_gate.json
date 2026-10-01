@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checks": {
+    "roc_auc": true,
+    "pr_auc": true,
+    "fairness_gap": true,
+    "group_coverage": true
+  }
+}

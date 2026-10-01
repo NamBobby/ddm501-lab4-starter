@@ -1,0 +1,5 @@
+{
+  "tracking_uri": "sqlite:////opt/runtime/mlflow.db",
+  "run_id": "26087bf1e78b481594122b232c559244",
+  "model_uri": "models:/assignment2-credit-risk/1"
+}

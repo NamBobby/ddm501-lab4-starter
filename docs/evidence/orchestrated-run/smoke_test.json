@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "probability_shape": [
+    5,
+    2
+  ],
+  "predictions_match": true,
+  "staging_directory": "/opt/runtime/runs/ebf8b5b44c33456eac7b/staging"
+}

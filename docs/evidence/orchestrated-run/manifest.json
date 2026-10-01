@@ -1,0 +1,26 @@
+{
+  "run_id": "assignment2-demo-20261002-044650",
+  "git_commit": "b9ca10c7ac346c85ab5ea525e54565659c3f2202",
+  "dataset_sha256": "756d0c82d6e99b9d38f6651083a7188818cef5355854afd55623e05654ecd4a8",
+  "seed": 501,
+  "threshold": 0.3,
+  "selected": {
+    "id": "E01",
+    "model": "logreg",
+    "engineered": true,
+    "params": {
+      "C": 0.1,
+      "max_iter": 2000
+    }
+  },
+  "orchestration": {
+    "selected_experiment": "E01",
+    "experiment_name": "assignment2-orchestrated",
+    "registered_model_name": "assignment2-credit-risk",
+    "quality_gates": {
+      "min_roc_auc": 0.7,
+      "min_pr_auc": 0.45,
+      "max_fairness_gap": 0.1
+    }
+  }
+}
