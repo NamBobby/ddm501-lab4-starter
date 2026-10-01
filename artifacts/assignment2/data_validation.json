@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "n_rows": 30000,
+  "n_columns": 24,
+  "schema_errors": [],
+  "statistical_errors": [],
+  "semantic_errors": [],
+  "n_errors": 0
+}

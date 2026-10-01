@@ -1,4 +1,4 @@
-﻿"""Run reproducible credit-risk experiments and track them with MLflow."""
+"""Run reproducible credit-risk experiments and track them with MLflow."""
 
 import hashlib
 import json
@@ -146,7 +146,7 @@ def main() -> None:
                 model, artifact_path="model",
                 signature=infer_signature(
                     X_train.head(5),
-                    model.predict_proba(X_train.head(5))[:, 1],
+                    model.predict_proba(X_train.head(5)),
                 ),
                 input_example=X_train.head(5),
                 pyfunc_predict_fn="predict_proba",

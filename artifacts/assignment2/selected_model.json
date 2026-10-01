@@ -13,5 +13,12 @@
     "class_prevalence": 0.23283333333333334
   },
   "dataset_sha256": "756d0c82d6e99b9d38f6651083a7188818cef5355854afd55623e05654ecd4a8",
-  "git_commit": "2de2a4afef4ff2a473bb6b408bbe7a82486f7b46"
+  "git_commit": "2de2a4afef4ff2a473bb6b408bbe7a82486f7b46",
+  "corrected_run_id": "393c76710a74465bbd91289f40dc7b68",
+  "corrected_model_uri": "models:/assignment2-credit-risk/2",
+  "registered_model_version": 2,
+  "probability_output": [
+    "no_default",
+    "default"
+  ]
 }
