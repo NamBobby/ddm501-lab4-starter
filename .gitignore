@@ -21,3 +21,8 @@ htmlcov/
 .DS_Store
 .idea/
 .vscode/
+
+# Local experiment tracking storage
+mlflow.db
+mlflow.db-*
+mlruns/
