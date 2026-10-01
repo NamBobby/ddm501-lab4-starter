@@ -1,0 +1,17 @@
+{
+  "selected_experiment": "E01",
+  "selection_metric": "val_pr_auc",
+  "validation_score": 0.5513553219884012,
+  "selected_run_id": "9284438ffb724039b752c4960845d14e",
+  "test_metrics": {
+    "roc_auc": 0.7506436233815331,
+    "pr_auc": 0.5534406910711158,
+    "precision": 0.5302013422818792,
+    "recall": 0.5089477451682176,
+    "brier_score": 0.14405153793913478,
+    "positive_rate": 0.2235,
+    "class_prevalence": 0.23283333333333334
+  },
+  "dataset_sha256": "756d0c82d6e99b9d38f6651083a7188818cef5355854afd55623e05654ecd4a8",
+  "git_commit": "2de2a4afef4ff2a473bb6b408bbe7a82486f7b46"
+}
