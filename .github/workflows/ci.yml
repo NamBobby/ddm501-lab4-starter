@@ -56,13 +56,13 @@ jobs:
           pip install -r requirements.txt
 
       - name: Generate the dataset
-        run: python scripts/make_dataset.py
+        run: python -m scripts.make_dataset
 
       - name: Train the model
-        run: python scripts/train_model.py
+        run: python -m scripts.train_model
 
       - name: Build the drift reference
-        run: python scripts/make_reference.py
+        run: python -m scripts.make_reference
 
       - name: Run the suite
         run: pytest
@@ -91,9 +91,9 @@ jobs:
       - name: Build the model the image needs
         run: |
           pip install -r requirements.txt
-          python scripts/make_dataset.py
-          python scripts/train_model.py
-          python scripts/make_reference.py
+          python -m scripts.make_dataset
+          python -m scripts.train_model
+          python -m scripts.make_reference
 
       - name: Start the stack
         run: docker compose up -d --build
@@ -110,7 +110,7 @@ jobs:
           exit 1
 
       - name: Generate traffic
-        run: python scripts/load_test.py --profile normal --requests 250 --delay 0
+        run: python -m scripts.load_test --profile normal --requests 250 --delay 0
 
       - name: Prometheus is scraping the API
         # The end-to-end assertion: a metric produced by the service has
