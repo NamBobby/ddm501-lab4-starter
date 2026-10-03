@@ -558,3 +558,14 @@ Grafana: database ok
 - FSB Lesson 08 — Deployment Strategies
 - Chip Huyen — Designing Machine Learning Systems
 - Geoff Hulten — Building Intelligent Systems
+
+## Kết quả kiểm chứng và phân tích
+
+- [Phân tích monitoring - Nhóm 7](docs/Lab4_Monitoring_Analysis_Group7.pdf)
+- [Dashboard normal](docs/evidence/01_normal_dashboard.png)
+- [Dashboard drifted](docs/evidence/02_drifted_dashboard.png)
+- [Dashboard unfair](docs/evidence/03_unfair_dashboard.png)
+
+Traffic logs và monitoring JSON nằm trong `docs/evidence/`.
+Mỗi profile dùng 400 requests, seed 501, reset API giữa các lượt.
+Phân tích phân biệt điều kiện vượt ngưỡng với alert thực sự firing.
