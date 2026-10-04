@@ -1,0 +1,31 @@
+INFO:pipeline.data_ingestion:Loaded 30000 rows x 24 columns from /Users/sofnb25/Documents/devops/lab4-review-20261003-184113/data/credit_default.csv
+drifted (strength 1) traffic: 400 requests -> http://localhost:8000/predict
+
+  50/400
+  100/400
+  150/400
+  200/400
+  250/400
+  300/400
+  350/400
+  400/400
+
+==========================================================
+requests      400
+status        {200: 400}
+latency p50   33.7 ms
+latency p95   68.0 ms
+latency max   126.1 ms
+score  mean   0.5897
+score  median 0.6398
+APPROVE          62  (15.5%)
+REVIEW          119  (29.8%)
+DECLINE         219  (54.8%)
+==========================================================
+
+monitoring after this run
+  window        400
+  drift score   4.250969647777792  (significant)
+  per feature   {'LIMIT_BAL': 2.042614426072324, 'AGE': 1.7083895662107071, 'PAY_0': 0.8262139491782023, 'utilisation_ratio': 3.092137748685534, 'payment_ratio': 4.250969647777792, 'max_delay': 0.7824715460034717}
+  selection     {'1': 0.8689655172413793, '2': 0.8313725490196079}
+  fairness gap  0.03759296822177138
